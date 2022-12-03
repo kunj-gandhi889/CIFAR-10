@@ -8,32 +8,28 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from keras.datasets import cifar10
 from skimage.feature import hog
-import os
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 classLabel = ["airplane","automobile","bird","cat","deer","dog","frog","horse","ship","truck"]
 
-# print(os.getcwd())
-path = ""
-
-with open(os.path.join(path,"mlp.pkl"),"rb") as f:
+with open("mlp.pkl","rb") as f:
     mlp = pickle.load(f)
-with open(os.path.join(path,"SVC_HOG.pkl"),"rb") as f:
+with open("SVC_HOG.pkl","rb") as f:
     svc_hog = pickle.load(f)
-with open(os.path.join(path,"svc_pca.pkl"),"rb") as f:
+with open("svc_pca.pkl","rb") as f:
     svc_pca = pickle.load(f)
-with open(os.path.join(path,"mlp_pca.pkl"),"rb") as f:
+with open("mlp_pca.pkl","rb") as f:
     mlp_pca = pickle.load(f)
-with open(os.path.join(path,"mlp_hog.pkl"),"rb") as f:
+with open("mlp_hog.pkl","rb") as f:
     mlp_hog = pickle.load(f)
-with open(os.path.join(path,"svc_rbf.pkl"),"rb") as f:
+with open("svc_rbf.pkl","rb") as f:
     svc = pickle.load(f)
-with open(os.path.join(path,"rfc_hog.pkl"),"rb") as f:
+with open("rfc_hog.pkl","rb") as f:
     rfc_hog = pickle.load(f)
-with open(os.path.join(path,"xgb_hog.pkl"),"rb") as f:
+with open("xgb_hog.pkl","rb") as f:
     xgb_hog = pickle.load(f)
-with open(os.path.join(path,"pca.pkl"),"rb") as f:
+with open("pca.pkl","rb") as f:
     pca = pickle.load(f)
 
 st.markdown("<h1 style='color:red;'>CIFAR-10 IMAGE CLASSIFICATION</h1>",unsafe_allow_html=True)
@@ -99,15 +95,15 @@ elif(ch == "PERFORMANCE"):
 
     st.write("<h3 style='text-align:center'>Accuracy Score of Base Models</h3>",unsafe_allow_html=True)
 
-    with open(os.path.join(path,"models1.pkl"),"rb") as f:
+    with open("models1.pkl","rb") as f:
         models = pickle.load(f)
-    with open(os.path.join(path,"accuracy_base.pkl"),"rb") as f:
+    with open("accuracy_base.pkl","rb") as f:
         accuracy1 = pickle.load(f)
-    with open(os.path.join(path,"accuracy_pca.pkl"),"rb") as f:
+    with open("accuracy_pca.pkl","rb") as f:
         accuracy2 = pickle.load(f)
-    with open(os.path.join(path,"accuracy_hog.pkl"),"rb") as f:
+    with open("accuracy_hog.pkl","rb") as f:
         accuracy3 = pickle.load(f)
-    with open(os.path.join(path,"model2.pkl"),"rb") as f:
+    with open("model2.pkl","rb") as f:
         models2 = pickle.load(f)
 
     plt.figure(figsize=(13,9))
